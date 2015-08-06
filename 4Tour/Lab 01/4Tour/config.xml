@@ -23,4 +23,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <icon src="img/android/icon-lbpi.png" platform="android" density="lbpi" />
+    <icon src="img/android/icon-mbpi.png" platform="android" density="mbpi" />
+    <icon src="img/android/icon-hbpi.png" platform="android" density="hbpi" />
+    <icon src="img/android/icon-xhbpi.png" platform="android" density="xhbpi" />
+    <icon src="img/android/icon-xxhbpi.png" platform="android" density="xxhbpi" />    
 </widget>

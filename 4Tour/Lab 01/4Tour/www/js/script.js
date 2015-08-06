@@ -31,9 +31,8 @@ var app = {
 
 	},
 	dispositivo: function() {
-		alert("Versao: " + device.cordova);
-		alert("NUMERO: " + device.uuid);
-		console.log(device);
+		document.getElementById("textoD").innerHTML = device.cordova + device.uuid + device.model;
+
 	}
 
 }

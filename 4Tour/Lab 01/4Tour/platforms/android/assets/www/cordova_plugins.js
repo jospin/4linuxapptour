@@ -11,13 +11,21 @@ module.exports = [
         "clobbers": [
             "device"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-battery-status/www/battery.js",
+        "id": "cordova-plugin-battery-status.battery",
+        "clobbers": [
+            "navigator.battery"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-device": "1.0.1"
+    "cordova-plugin-device": "1.0.1",
+    "cordova-plugin-battery-status": "1.1.0"
 }
 // BOTTOM OF METADATA
 });

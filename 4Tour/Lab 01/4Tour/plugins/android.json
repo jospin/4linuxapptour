@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Battery\"><param name=\"android-package\" value=\"org.apache.cordova.batterystatus.BatteryListener\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -26,6 +30,9 @@
             "PACKAGE_NAME": "br.com.ljospin"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.ljospin"
+        },
+        "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "br.com.ljospin"
         }
     },

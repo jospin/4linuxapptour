@@ -27,11 +27,25 @@ var app = {
 			},
 			false
 		);
-		app.dispositivo()
-
+		app.dispositivo();
+		window.addEventListener('batterystatus', app.bateria(), false);
+		window.addEventListener('batterylow', alert('bateria baixa'), false);
+		window.addEventListener('batterycritical', alert('bateria cr[itica'), false);
 	},
 	dispositivo: function() {
-		document.getElementById("textoD").innerHTML = device.cordova + device.uuid + device.model;
+		document.getElementById("textoD").innerHTML = 
+				device.cordova + "<br />"
+				+ device.uuid + "<br />" 
+				+ device.model + "<br />"
+				+ device.platform + "<br />";
+
+	},
+	bateria: function(	) {
+		if(info.isPlugged) {
+			document.getElementByid('textoB').innerHTML = "Bateria Plugada";
+		} else {
+			document.getElementByid('textoB').innerHTML = "Bateria n'ao plugada";
+		}
 
 	}
 

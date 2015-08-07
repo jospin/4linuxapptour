@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.ljospin" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="br.com.labljospin" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>app4Tour</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -23,9 +23,4 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <icon src="img/android/icon-lbpi.png" platform="android" density="lbpi" />
-    <icon src="img/android/icon-mbpi.png" platform="android" density="mbpi" />
-    <icon src="img/android/icon-hbpi.png" platform="android" density="hbpi" />
-    <icon src="img/android/icon-xhbpi.png" platform="android" density="xhbpi" />
-    <icon src="img/android/icon-xxhbpi.png" platform="android" density="xxhbpi" />    
 </widget>

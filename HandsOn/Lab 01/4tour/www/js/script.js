@@ -10,13 +10,73 @@ var app = {
 		);
 	},
 	onDeviceReady: function() {
-		// app.dispositivo();
-		// app.battery();
-		// app.checkNetwork();
-		// app.checkOnline();
+		//app.battery();
+		//app.checkNetwork();
+		//app.checkOnline();
+		//app.statusBar();
 		app.vibration();
+		app.alerta();
+		app.browser();
 		// app.resume();
 		// app.pause();
+	},
+	// statusBar: function() {
+	// 	StatusBar.hide();
+	// 	// setTimeout(
+	// 	// 	function(){StatusBar.hide();},10000);
+	// },
+	browser: function() {
+		document.getElementById('gogle')
+			.addEventListener('click', function(){
+				window.open = cordova.InAppBrowser.open(
+						'http://google.com',
+						'_blank',
+						'location=no'
+					)
+			});
+		document.getElementById('gogle2')
+			.addEventListener('click', function(){
+				window.open = cordova.InAppBrowser.open(
+						'http://google.com',
+						'_blank',
+						'location=yes'
+					)
+			});
+		document.getElementById('gogle3')
+			.addEventListener('click', function(){
+				window.open = cordova.InAppBrowser.open(
+						'http://google.com'
+					)
+			});
+	},
+	alerta: function() {
+		document.getElementById('alertar')
+			.addEventListener('click', function(){
+				navigator.notification.alert(
+					"Area Restrita",
+					function(){alert("Ola!")},
+					"Cuidado",
+					"Ok"
+				);
+			});
+		document.getElementById('bipar')
+			.addEventListener('click', function(){
+				navigator.notification.beep(4);
+			});
+		document.getElementById('sair')
+			.addEventListener('click', function(){
+				navigator.notification.confirm(
+					"Realmente deseja sair?",
+					function(buttonIndex) {
+						if (buttonIndex === 1) {
+							navigator.app.exitApp();
+						}
+					},
+					"Sair",
+					["Sim","Nao"]
+				);
+
+			});
 	},
 	vibration: function() {
 		document.getElementById("vibrar")
@@ -29,7 +89,6 @@ var app = {
 			.addEventListener('click', function(){
 				navigator.vibrate(0);
 			});
-		//navigator.vibrate([5000,100,500,100]);
 	}
 	// checkNetwork: function() {
 	// 	var networkState = navigator.connection.type;
@@ -52,7 +111,7 @@ var app = {
 	// 		},
 	// 		false
 	// 	);
-	// },
+	// }
 	// // escreve: function() {
 	// // 	alert('dispositivo pronto');
 	// // },
@@ -75,11 +134,6 @@ var app = {
 	// // 		false
 	// // 	)
 	// // },
-	// dispositivo: function() {
-	// 	alert("Versao: " + device.cordova);
-	// 	alert("NUMERO: " + device.uuid);
-	// 	console.log(device);
-	// }
 };
 if(navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)){
 	app.init();

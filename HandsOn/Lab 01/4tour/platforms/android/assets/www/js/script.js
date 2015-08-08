@@ -19,6 +19,7 @@ var app = {
 		app.browser();
 		app.geolocation();
 		app.globalization();
+		app.camera();
 		//app.acelerometro();
 		app.orientacao()
 		// app.resume();
@@ -31,7 +32,6 @@ var app = {
 	// },
 	orientacao: function() {
 		var orienta = document.getElementById('orienta');
-		alert(navigator.compass);
 		navigator.compass.getCurrentHeading(
 			function(heading) {
 				alert(heading);
@@ -51,6 +51,10 @@ var app = {
 			},
 			function(error){alert('erro'+erro.mesage);}
 		);
+	},
+	camera: function() {
+		
+
 	},
 	acelerometro: function() {
 		var acel = document.getElementById('acelerometro');

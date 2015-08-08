@@ -28,7 +28,7 @@ var app = {
 			false
 		);
 		app.dispositivo();
-		window.addEventListener('batterystatus', app.bateria(info), false);
+		window.addEventListener('batterystatus', app.bateria(), false);
 		window.addEventListener('batterylow', alert('bateria baixa'), false);
 		window.addEventListener('batterycritical', alert('bateria cr[itica'), false);
 	},
@@ -40,7 +40,7 @@ var app = {
 				+ device.platform + "<br />";
 
 	},
-	bateria: function(info) {
+	bateria: function(	) {
 		if(info.isPlugged) {
 			document.getElementByid('textoB').innerHTML = "Bateria Plugada";
 		} else {

@@ -13,6 +13,27 @@ Config.xml file:
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
+    <feature name="Geolocation">
+      <param name="android-package" value="org.apache.cordova.globalization.Globalization" />  
+    </feature>    
+
+    <icon src="www/img/android/icon_4linux.png" />
+    <icon src="www/img/android/icon_4linux_ldpi.png" platform="android" density="ldpi" />
+    <icon src="www/img/android/icon_4linux_mdpi.png" platform="android" density="mdpi" />
+    <icon src="www/img/android/icon_4linux_hdpi.png" platform="android" density="hdpi" />
+    <icon src="www/img/android/icon_4linux_xhdpi.png" platform="android" density="xhdpi" />
+    <icon src="www/img/android/icon_4linux_xxhdpi.png" platform="android" density="xxhdpi" />
+
+    <preference name="SplashScreen" value="screen"/>
+    <preference name="SplashScreenDelay" value="1000"/>
+
+    <splash src="www/img/android/splash/bg_4linux_ldpi.png" platform="android" density="ldpi" />
+    <splash src="www/img/android/splash/bg_4linux_mdpi.png" platform="android" density="mdpi" />
+    <splash src="www/img/android/splash/bg_4linux_hdpi.png" platform="android" density="hdpi" />
+    <splash src="www/img/android/splash/bg_4linux_xhdpi.png" platform="android" density="xhdpi" />
+    <splash src="www/img/android/splash/bg_4linux_xxhdpi.png" platform="android" density="xxhdpi" />
+    <splash src="www/img/android/splash/bg_4linux_xxxhdpi.png" platform="android" density="xxxhdpi" />
+
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <access origin="*" />
@@ -29,16 +50,11 @@ Config.xml file:
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <icon src="img/android/icon-lbpi.png" platform="android" density="lbpi" />
-    <icon src="img/android/icon-mbpi.png" platform="android" density="mbpi" />
-    <icon src="img/android/icon-hbpi.png" platform="android" density="hbpi" />
-    <icon src="img/android/icon-xhbpi.png" platform="android" density="xhbpi" />
-    <icon src="img/android/icon-xxhbpi.png" platform="android" density="xxhbpi" />
 </widget>
 
 Plugins: 
 
-cordova-plugin-battery-status,cordova-plugin-console,cordova-plugin-device,cordova-plugin-network-information,cordova-plugin-vibration,cordova-plugin-whitelist
+cordova-plugin-battery-status,cordova-plugin-console,cordova-plugin-device,cordova-plugin-dialogs,cordova-plugin-geolocation,cordova-plugin-globalization,cordova-plugin-inappbrowser,cordova-plugin-network-information,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-vibration,cordova-plugin-whitelist
 
 Android platform:
 

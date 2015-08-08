@@ -17,6 +17,10 @@ var app = {
 		app.vibration();
 		app.alerta();
 		app.browser();
+		app.geolocation();
+		app.globalization();
+		app.acelerometro();
+		app.orientacao()
 		// app.resume();
 		// app.pause();
 	},
@@ -25,6 +29,117 @@ var app = {
 	// 	// setTimeout(
 	// 	// 	function(){StatusBar.hide();},10000);
 	// },
+	orientacao: function() {
+		var orienta = document.getElementById('orienta');
+		navigator.compass.getCurrentHeading(
+			function(heading) {
+				var html = 'Orienta<br />'
+				+ "heading: " 
+				+ heading.magneticHeading;
+				orienta.innerHTML = html;
+			},
+			function(error){alert('erro'+erro.mesage);}
+		);
+		navigator.compass.watchHeading(
+			function(heading) {
+				var html = 'Orienta<br />'
+				+ "heading: " 
+				+ heading.magneticHeading;
+				orienta.innerHTML = html;
+			},
+			function(error){alert('erro'+erro.mesage);}
+		);
+	},
+	acelerometro: function() {
+		var acel = document.getElementById('acelerometro');
+		navigator.accelerometer.getCurrentAcceleration(
+			function(aceleration) {
+				var html = '<br />Aceleration X: '
+					+ aceleration.X
+					+ '<br />Aceleration Y: ' 
+					+ aceleration.Y
+					+ '<br />Aceleration z: '
+					+ aceleration.z
+					+ '<br />Timestamp' 
+					+ aceleration.timestamp;
+				acel.innerHTML = html;
+			},
+			function(erro){alert(erro.mesage);}
+		);
+		navigator.accelerometer.watchAcceleration(
+			function(aceleration) {
+				html = '<br />Aceleration X: '
+					+ aceleration.X
+					+ '<br />Aceleration Y: '
+					+ aceleration.Y
+					+ '<br />Aceleration z: '
+					+ aceleration.z
+					+ '<br />Timestamp' 
+					+ aceleration.timestamp;
+				acel.innerHTML = html;
+			},
+			function(){alert('erro');},
+			{frequency:3000}
+		);
+
+	},
+	globalization: function() {
+		document.getElementById('globalizacao')
+			.addEventListener('click', function(){
+			navigator.globalization.getPreferredLanguage(
+				function(language) {
+					alert('Language: ' + language.value);
+				},
+				function(){alert('erro na linguagem');}
+			);
+			navigator.globalization.getLocaleName(
+				function(locale) {
+					alert('locale' + locale.value);
+				},
+				function(){alert('Erro no locale');}
+			);
+			navigator.globalization.dateToString(
+				new Date,
+				function(date){alert('data: ' + date.value);},
+				function(){alert('erro ao pegar data');}
+
+			);
+			navigator.globalization.isDayLightSavingsTime(
+				new Date,
+				function(date){alert('dst: ' + date.dst)},
+				function(){alert('Erro no dst');}
+			)
+		});
+	},
+	geolocation: function() {
+		var localizacao = false;
+			navigator.geolocation.getCurrentPosition(
+				function(position){
+					var html = "Posicao incial<br />"
+						+ "Latitude: " + position.coords.latitude
+						+ "<br /> Longitude: " + position.coords.longitude;
+					var localizacao = document.getElementById("localizacao-inicial");
+					localizacao.innerHTML = html;
+				},
+				function(){
+					alert("Ero de geolocalizacao: " + error.mesage);
+				},
+				{enableHighAccurancy:true}
+			);
+
+
+		geo = navigator.geolocation;
+		geo.watchPosition(
+			function(position) {
+				var html = "Posicao atual<br />"
+					+ "Latitude: " + position.coords.latitude
+					+ "<br /> Longitude: " 
+					+ position.coords.longitude;
+				var localizacao = document.getElementById("localizacao-final");
+				localizacao.innerHTML = html;
+			}
+		);
+	},
 	browser: function() {
 		document.getElementById('gogle')
 			.addEventListener('click', function(){

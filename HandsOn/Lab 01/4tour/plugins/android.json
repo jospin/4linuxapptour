@@ -55,6 +55,10 @@
                         {
                             "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -73,6 +77,10 @@
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
                             "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
                         }
                     ],
                     "/manifest": [
@@ -126,6 +134,9 @@
             "PACKAGE_NAME": "com.app.ljospin"
         },
         "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.app.ljospin"
+        },
+        "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.app.ljospin"
         }
     },

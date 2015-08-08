@@ -19,7 +19,7 @@ var app = {
 		app.browser();
 		app.geolocation();
 		app.globalization();
-		app.acelerometro();
+		//app.acelerometro();
 		app.orientacao()
 		// app.resume();
 		// app.pause();
@@ -31,8 +31,10 @@ var app = {
 	// },
 	orientacao: function() {
 		var orienta = document.getElementById('orienta');
+		alert(navigator.compass);
 		navigator.compass.getCurrentHeading(
 			function(heading) {
+				alert(heading);
 				var html = 'Orienta<br />'
 				+ "heading: " 
 				+ heading.magneticHeading;

@@ -157,8 +157,6 @@ var app = {
 																"Latitude: "+position.coords.latitude+"<br/>" +
 																"Longitude: "+position.coords.longitude+"<br/>" +
 																"Precisão: "+position.coords.accuracy+"<br/>" +
-																"Direção: "+position.coords.heading+"<br/>" +
-																"Velocidade: "+position.coords.speed+"<br/>" +
 																"Data: "+data+"</p>";
 			},
 			function(error){
@@ -175,8 +173,6 @@ var app = {
 																"Latitude: "+position.coords.latitude+"<br/>" +
 																"Longitude: "+position.coords.longitude+"<br/>" +
 																"Precisão: "+position.coords.accuracy+"<br/>" +
-																"Direção: "+position.coords.heading+"<br/>" +
-																"Velocidade: "+position.coords.speed+"<br/>" +
 																"Data: "+data+"</p>";
 			},
 			function(error){
@@ -367,7 +363,6 @@ var app = {
 					console.log(message);
 				},
 				{
-					allowEdit : true,
 					correctOrientation: true,
 					saveToPhotoAlbum: true
 				}

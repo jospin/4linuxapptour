@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <title>Pagina1</title>
-    <meta name="viewport" conten="width=device-width,intial-scale=1">
-    <link rel="stylesheet" href="plugin/jquery.mobile.structure-1.4.5.min.css"/>
-    <link rel="stylesheet" href="plugin/jquery.mobile.theme-1.4.5.min.css" />
-    <link rel="stylesheet" href="plugin/jquery.mobile.icons-1.4.5.min.css" />
-    <script type="text/javascript" src="plugin/jquery-2.1.4.min.js"></script>
-    <script src="plugin/jquery.mobile-1.4.5.min.js"></script>
-</head>
-<body>
+<html lang="pt-br" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pagina1</title>
+        <meta name="viewport" conten="width=device-width,intial-scale=1">
+        <link rel="stylesheet" href="plugin/jquery.mobile.structure-1.4.5.min.css"/>
+        <link rel="stylesheet" href="plugin/jquery.mobile.theme-1.4.5.min.css" />
+        <link rel="stylesheet" href="plugin/jquery.mobile.icons-1.4.5.min.css" />
+        <script type="text/javascript" src="plugin/jquery-2.1.4.min.js"></script>
+        <script src="plugin/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
     <section data-role="page" id="page1">
         <div data-role="main" class="ui-content">
             <p id="dispositivo"></p>
@@ -22,7 +23,9 @@
             <a href="#localizacao" class="ui-btn">Localizar</a>
             <a href="#acelerometro" class="ui-btn">Acelerometro</a>
             <a href="#orientacao" class="ui-btn">Orientacao</a>
+            <a href="#audio" class="ui-btn">Media</a>
             <a href="#" id="globalizacao" class="ui-btn">Globalizacao</a>
+            <a href="#camera" class="ui-btn">Camera</a>
             <a href="#" id="alertar" class="ui-btn">Alertar</a>
             <a href="#" id="bipar" class="ui-btn">Bipar</a>
             <a href="#" id="sair" class="ui-btn">Sair</a>
@@ -37,7 +40,39 @@
             <p id="localizacao-final"></p>
             <a href="#page1" class="ui-btn">Voltar</a>
         </div>
-    </section>    
+    </section>
+    <section data-role="page" id="camera">
+        <header data-role="header" data-position="fixed">
+            <h1>Câmera</h1>
+        </header>
+        <div data-role="main" class="ui-content">
+            <button class="ui-btn" id="tirar_foto">Tirar foto</button>
+            <img id="foto" />
+        </div>
+    </section>
+    <section data-role="page" id="audio">
+        <header data-role="header" data-position="fixed">
+            <h1>Áudio</h1>
+        </header>
+        <div data-role="main" class="ui-content">
+            <button class="ui-btn" id="gravar">Gravar Áudio</button>
+            <p id="gravacao"></p>
+            <br/>
+            <button class="ui-btn" id="stop">Parar Gravação</button>
+            <br/>
+            <button class="ui-btn" id="play">Executar Áudio</button>
+            <p id="position"></p>
+            <p id="info"></p>
+            <br/>
+            <button class="ui-btn" id="pause">Pausar Áudio</button>
+            <br/>
+            <button class="ui-btn" id="stop">Parar Áudio</button>
+            <br/>
+            <button class="ui-btn" id="mute">Mutar Áudio</button>
+            <br/>
+            <button class="ui-btn" id="unmute">Tirar do mudo o Áudio</button>
+        </div>
+    </section>
     <section data-role="page" id="acelerometro">
         <div data-role="main" class="ui-content">
             <p id="acelerometro"></p>
@@ -114,6 +149,7 @@
         </div>
     </section>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-</body>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

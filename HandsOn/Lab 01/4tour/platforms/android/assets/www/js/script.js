@@ -28,6 +28,7 @@ var app = {
 		app.audio();
 		app.backButton();
 		app.contatos();
+		app.fileSystem();
 	},
 	receivedEvent: function(id, elemento) {
 		var pronto = document.getElementById(id).querySelector(elemento);
@@ -71,10 +72,10 @@ var app = {
 		document.getElementById(id).querySelector(elemento).innerHTML = "Tipo de conexão: "+states[networkState];
 	},
 	changeOnline: function(){
-		alert('Online');
+		//alert('Online');
 	},
 	changeOffline: function(){
-		alert('Offline');
+		//alert('Offline');
 	},
 	vibrate: function(){
 		document.getElementById('button_vibra').addEventListener("click", function(){
@@ -476,9 +477,8 @@ var app = {
 	},
 	backButton: function(){
 		document.addEventListener('backbutton', function() {
-			var activePage = $.mobile.activePage.attr('page_inicial');
-			alert(activePage);
-			if (activePage !== 'inicial') {
+			var activePage = $.mobile.activePage.attr('id');
+			if (activePage !== 'page_inicial') {
 				navigator.app.backHistory();
 			} else {
 				navigator.notification.confirm(
@@ -507,13 +507,6 @@ var app = {
 			var save_prefixo_contato 		= document.getElementById("save_prefixo_contato").value;
 			var save_sufixo_contato 		= document.getElementById("save_sufixo_contato").value;
 			var save_apelido_contato 		= document.getElementById("save_apelido_contato").value;
-			// var save_nome_exibicao_contato 	= 'Nome Exibicao';
-			// var save_nome_contato 			= 'Nome contato';
-			// var save_nome_meio_contato 		= 'Nome do meio';
-			// var save_sobrenome_contato 		= 'Sobrenome';
-			// var save_prefixo_contato 		= 'Prefixo contato';
-			// var save_sufixo_contato 		= 'Sufixo contato';
-			// var save_apelido_contato 		= 'Apelido contato';
 
 			var nome_completo = new ContactName();
 			nome_completo.givenName = save_nome_contato;
@@ -526,9 +519,6 @@ var app = {
 			var save_tel_contato 	= document.getElementById("save_tel_contato").value;
 			var save_cel_contato 	= document.getElementById("save_cel_contato").value;
 			var save_trab_contato 	= document.getElementById("save_trab_contato").value;
-			// var save_tel_contato 	= '115631-6359';
-			// var save_cel_contato 	= '11973875066';
-			// var save_trab_contato 	= '1136060606';
 
 			var phoneNumbers = [];
 			phoneNumbers[0] = new ContactField('mobile', save_cel_contato, true); // preferred number
@@ -537,8 +527,6 @@ var app = {
 
 			var save_email_contato 		= document.getElementById("save_email_contato").value;
 			var save_emailtrab_contato 	= document.getElementById("save_emailtrab_contato").value;
-			// var save_emailtrab_contato 		= 'trabalho@mt4.com.br';
-			// var save_email_contato 	= 'casa@casa.com.br';
 
 			var emails = [];
 			emails[0] = new ContactField('home', save_email_contato, true); // preferred number
@@ -550,12 +538,6 @@ var app = {
 			var save_endres_estado_contato 	= document.getElementById("save_endres_estado_contato").value;
 			var save_endres_cep_contato 	= document.getElementById("save_endres_cep_contato").value;
 			var save_endres_pais_contato 	= document.getElementById("save_endres_pais_contato").value;
-			// var save_endres_contato 		= 'endereco contato';
-			// var save_endres_num_contato 	= 'num';
-			// var save_endres_cidade_contato 	= 'cidade';
-			// var save_endres_estado_contato 	= 'estado';
-			// var save_endres_cep_contato 	= 'cep';
-			// var save_endres_pais_contato 	= 'pais';
 			var save_endres_total 			= (save_endres_contato != "" && save_endres_num_contato != "") ? save_endres_contato+", "+save_endres_num_contato : "";
 
 			var save_endtrab_contato 		= document.getElementById("save_endtrab_contato").value;
@@ -565,12 +547,6 @@ var app = {
 			var save_endtrab_cep_contato 	= document.getElementById("save_endtrab_cep_contato").value;
 			var save_endtrab_pais_contato 	= document.getElementById("save_endtrab_pais_contato").value;
 
-			// var save_endtrab_contato 		= 'endereco trabalho';
-			// var save_endtrab_num_contato 	= 'numero contato';
-			// var save_endtrab_cidade_contato = 'cidade contato';
-			// var save_endtrab_estado_contato = 'estado contato';
-			// var save_endtrab_cep_contato 	= 'cep contato';
-			// var save_endtrab_pais_contato 	= 'pais contato';
 			var save_endtrab_total 			= (save_endtrab_contato != "" && save_endtrab_num_contato != "") ? save_endtrab_contato+", "+save_endtrab_num_contato : "";
 
 			var enderecos = [];
@@ -598,9 +574,6 @@ var app = {
 			var save_work_empresa 		= document.getElementById("save_work_empresa").value;
 			var save_work_departamento 	= document.getElementById("save_work_departamento").value;
 			var save_work_cargo 		= document.getElementById("save_work_cargo").value;
-			// var save_work_empresa 		= 'empresa';
-			// var save_work_departamento 	= 'Departamento';
-			// var save_work_cargo 		= 'Cargo';
 
 			var organizations = [];
 			organizations[0] = new ContactOrganization(false, 'work', save_work_empresa, save_work_departamento, save_work_cargo);
@@ -610,9 +583,6 @@ var app = {
 			var save_url3_contato = document.getElementById("save_url3_contato").value;
 			var save_url4_contato = document.getElementById("save_url4_contato").value;
 			var save_url5_contato = document.getElementById("save_url5_contato").value;
-			// var save_url1_contato = 'url1';
-			// var save_url2_contato = 'url2';
-			// var save_url3_contato = 'url3';
 
 			var urls = [];
 			urls[0] = new ContactField('',save_url1_contato);
@@ -626,9 +596,6 @@ var app = {
 			var save_im3_contato = document.getElementById("save_im3_contato").value;
 			var save_im4_contato = document.getElementById("save_im4_contato").value;
 			var save_im5_contato = document.getElementById("save_im5_contato").value;
-			// var save_im1_contato = 'im1';
-			// var save_im2_contato = 'im2';
-			// var save_im3_contato = 'im3';
 
 			var ims = [];
 			ims[0] = new ContactField('',save_im1_contato);
@@ -637,8 +604,6 @@ var app = {
 			ims[3] = new ContactField('',save_im4_contato);
 			ims[4] = new ContactField('',save_im5_contato);
 
-			//var save_foto_contato = 'Foto';
-			//var photos = 'http://i.imgur.com/f0PggMX.png';
 			var save_foto_contato = document.getElementById("save_foto_contato").value;
 
 			var photos = [];
@@ -646,7 +611,6 @@ var app = {
 
 
 			var save_info_details = document.getElementById("save_info_details").value;
-			//var save_info_details = 'Detalhe';
 
 			var contato 			= navigator.contacts.create();
 			contato.displayName 	= save_nome_exibicao_contato;
@@ -671,24 +635,50 @@ var app = {
 			);
 		});
 
-		document.getElementById("find_contato").addEventListener("click", function(){
+		document.getElementById("find_contato")
+			.addEventListener("click", function() {
 			var find_nome_contato = document.getElementById("find_nome_contato").value;
 			var info_find_contato = document.getElementById("info_find_contato");
-
+			info_find_contato.innerHTML = 'Buscando...';
 			var options      		= new ContactFindOptions();
 			options.filter   		= find_nome_contato;
 			options.multiple 		= true;
 			options.desiredFields 	= [navigator.contacts.fieldType.id];
 			options.hasPhoneNumber 	= true;
 			var fields       		= [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
-
-			navigator.contacts.find(fields, function(contatos){
-				info_find_contato.innerHTML = 'Encontrado ' + contatos.length + ' contatos.';
-			}, function(contactError) {
-				info_find_contato.innerHTML = 'Erro ao procurar os contatos.';
-			}, options);
+			navigator.contacts.find(
+				fields,
+				function(contatos) {
+					info_find_contato.innerHTML = 'Encontrado '
+						+ contatos.length 
+						+ 'Contatos';
+					var html = null;;
+					contatos.forEach(function(c){
+						html = html + c.id + 'Nome: ' + c.displayName + '<br />';
+					});
+					info_find_contato.innerHTML = html;
+				},
+				function(contactError) {
+					info_find_contato.innerHTML = 'Erro ao procurar os contatos.';
+				},
+				options
+			);
 
 		});
+	},
+	fileSystem: function() {
+		var type = window.TEMPORARY;
+		var size = 10*1024*1024;
+		window.requestFileSystem(
+			type,
+			size,
+			function(fs){
+				alert('Repositorio de arquivo requisitado com suceso' + fs.name);
+			},
+			function(error){
+				alert('Erro na requisicao do arquivo' + error.code);
+			}
+		);
 	}
 }
 

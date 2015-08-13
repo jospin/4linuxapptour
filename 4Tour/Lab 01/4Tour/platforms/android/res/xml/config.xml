@@ -11,22 +11,6 @@
     <feature name="Battery">
         <param name="android-package" value="org.apache.cordova.batterystatus.BatteryListener" />
     </feature>
-    <allow-intent href="market:*" />
-    <name>app4Tour</name>
-    <description>
-        A sample Apache Cordova application that responds to the deviceready event.
-    </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
-    <content src="index.html" />
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
@@ -69,4 +53,34 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
+    <allow-intent href="market:*" />
+    <name>app4Tour</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <icon src="www/img/android/icon_4linux.png" />
+    <icon density="ldpi" platform="android" src="www/img/android/icon_4linux_ldpi.png" />
+    <icon density="mdpi" platform="android" src="www/img/android/icon_4linux_mdpi.png" />
+    <icon density="hdpi" platform="android" src="www/img/android/icon_4linux_hdpi.png" />
+    <icon density="xhdpi" platform="android" src="www/img/android/icon_4linux_xhdpi.png" />
+    <icon density="xxhdpi" platform="android" src="www/img/android/icon_4linux_xxhdpi.png" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="1000" />
+    <splash density="ldpi" platform="android" src="www/img/android/splash/bg_4linux_ldpi.png" />
+    <splash density="mdpi" platform="android" src="www/img/android/splash/bg_4linux_mdpi.png" />
+    <splash density="hdpi" platform="android" src="www/img/android/splash/bg_4linux_hdpi.png" />
+    <splash density="xhdpi" platform="android" src="www/img/android/splash/bg_4linux_xhdpi.png" />
+    <splash density="xxhdpi" platform="android" src="www/img/android/splash/bg_4linux_xxhdpi.png" />
+    <splash density="xxxhdpi" platform="android" src="www/img/android/splash/bg_4linux_xxxhdpi.png" />
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
 </widget>

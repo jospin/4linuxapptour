@@ -667,13 +667,22 @@ var app = {
 		});
 	},
 	fileSystem: function() {
+
 		var type = window.TEMPORARY;
 		var size = 10*1024*1024;
 		window.requestFileSystem(
 			type,
 			size,
 			function(fs){
-				alert('Repositorio de arquivo requisitado com suceso' + fs.name);
+				document.getElementById('arquivo').
+					addEventListener('click', function() {
+						var isfile = fs.root.isFile?'Sim':'Nao';
+						var isDir = fs.root.isDirectory?'Sim':'Nao';
+						document.getElementById('is-file').innerHTML = "arquivo: " + isfile;
+						document.getElementById('is-dir').innerHTML = "diretorio: " + isDir;
+						document.getElementById('full-path').innerHTML = "path: " + fs.root.fullPath;
+						document.getElementById('root-name').innerHTML = "Name: " + fs.root.name;
+					});
 			},
 			function(error){
 				alert('Erro na requisicao do arquivo' + error.code);

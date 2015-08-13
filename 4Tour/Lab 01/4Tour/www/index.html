@@ -4,43 +4,48 @@
         <meta charset="UTF-8" />
         <title>Pagina1</title>
         <meta name="viewport" conten="width=device-width,intial-scale=1">
-        <link rel="stylesheet" href="plugin/jquery.mobile.structure-1.4.5.min.css"/>
-        <link rel="stylesheet" href="plugin/jquery.mobile.theme-1.4.5.min.css" />
-        <link rel="stylesheet" href="plugin/jquery.mobile.icons-1.4.5.min.css" />
+        <link rel="stylesheet" href="plugin/jQuery/jquery.mobile.structure-1.4.5.min.css"/>
+        <link rel="stylesheet" href="plugin/jQuery/jquery.mobile.theme-1.4.5.min.css" />
+        <link rel="stylesheet" href="plugin/jQuery/jquery.mobile.icons-1.4.5.min.css" />
         <link rel="stylesheet" href="css/index.css" />
-        <script type="text/javascript" src="plugin/jquery-2.1.4.min.js"></script>
-        <script src="plugin/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="plugin/jQuery/jquery-2.1.4.min.js"></script>
+        <script src="plugin/jQuery/jquery.mobile-1.4.5.min.js"></script>
     </head>
-    <body>
-        <section data-role="page" id="page_inicial">
+    <body>        
+        <section data-role="page" id="page_inicial" data-theme="a">
+         <div data-role="panel" id="navpanel" data-theme="a"
+                 data-display="overlay" data-position="right">
+                <div data-role="controlgroup" data-corners="false">
+                    <a data-role="button"href="#page_bateria">Bateria</a>
+                    <a data-role="button"href="#page_rede">Rede</a>
+                    <a data-role="button"href="#page_vibrar">Vibração</a>
+                    <a data-role="button"href="#page_dialogo">Diálogo</a>
+                    <a data-role="button"href="#page_linkbrowser">Link em Browser</a>
+                    <a data-role="button"href="#page_geolocalizacao">Geolocalização</a>
+                    <a data-role="button"href="#page_globalizacao">Globalização</a>
+                    <a data-role="button"href="#page_acelerometro">Acelerômetro</a>
+                    <a data-role="button"href="#page_orientacao">Orientação</a>
+                    <a data-role="button"href="#page_bussula">Bússula</a>
+                    <a data-role="button"href="#page_camera">Câmera</a>
+                    <a data-role="button"href="#page_audio">Áudio</a>
+                    <a data-role="button"href="#page_contatos">Contatos</a>
+                    <a data-role="button"href="#page_arquivos">Arquivos</a>
+                </div>
+            </div>
+
             <header data-role="header" data-position="fixed">
                 <h1>Página Inicial</h1>
+                <a id="bars-button" data-icon="bars"  class="ui-btn-right" style="margin-top:1px;" href="#navpanel">
+                    Menu
+                </a>
             </header>
+
             <div data-role="main" class="ui-content">
                 <a class="ui-btn" href="#page_secundaria">Página Secundária</a>
                 <a class="ui-btn" href="#page_email">Email</a>
                 <a class="ui-btn" href="#page_form">Formulário</a>
 
                 <p id="ready">Carregando dispositivo...</p>
-
-                <p>Menu</p>
-                <ul data-role="listview">
-                    <li><a href="#page_dispositivo">Dispositivo</a></li>
-                    <li><a href="#page_bateria">Bateria</a></li>
-                    <li><a href="#page_rede">Rede</a></li>
-                    <li><a href="#page_vibrar">Vibração</a></li>
-                    <li><a href="#page_dialogo">Diálogo</a></li>
-                    <li><a href="#page_linkbrowser">Link em Browser</a></li>
-                    <li><a href="#page_geolocalizacao">Geolocalização</a></li>
-                    <li><a href="#page_globalizacao">Globalização</a></li>
-                    <li><a href="#page_acelerometro">Acelerômetro</a></li>
-                    <li><a href="#page_orientacao">Orientação</a></li>
-                    <li><a href="#page_bussula">Bússula</a></li>
-                    <li><a href="#page_camera">Câmera</a></li>
-                    <li><a href="#page_audio">Áudio</a></li>
-                    <li><a href="#page_contatos">Contatos</a></li>
-                    <li><a href="#page_arquivos">Arquivos</a></li>
-                </ul>
             </div>
             <footer data-role="footer" data-position="fixed">
                 <p>Rodapé</p>
@@ -421,19 +426,20 @@
         </section>
 
         <section data-role="page" id="page_arquivos">
-            <header data-hole="header" data-position="fized">
+            <header data-hole="header" data-position="fixed">
                 <h1>Repositorio de arquivo</h1>
             </header>
             <div data-role="main" class="ui-content">
-                <h3>Entidae reposit[orio</h3>
+                <h3>Entidae repositorio</h3>
                 <button class="ui-btn" id="arquivo">Detalhes arquivos</button>
                 <p id="is-file"></p>
                 <p id="is-dir"></p>
                 <p id="full-path"></p>
                 <p id="root-name"></p>
+                <p id="native"></p>
             </div>
         </section>
-       
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
     </body>

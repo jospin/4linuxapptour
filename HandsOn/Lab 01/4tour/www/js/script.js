@@ -674,13 +674,15 @@ var app = {
 			type,
 			size,
 			function(fs){
-				$.mobile('#arquivo').
+				document.getElementById('arquivo').
 					addEventListener('click', function() {
-						$.mobile('#is-file').innerHTML = "e arquivo: " + fs.isFile;
-						$.mobile('#is-dir').innerHTML = "e diretorio: " + fs.isDir;
-						$.mobile('#full-path').innerHTML = "path: " + fs.fullPath;
-						$.mobile('#root-name').innerHTML = "Name: " + fs.fullroot.name;
-					})
+						var isfile = fs.root.isFile?'Sim':'Nao';
+						var isDir = fs.root.isDirectory?'Sim':'Nao';
+						document.getElementById('is-file').innerHTML = "arquivo: " + isfile;
+						document.getElementById('is-dir').innerHTML = "diretorio: " + isDir;
+						document.getElementById('full-path').innerHTML = "path: " + fs.root.fullPath;
+						document.getElementById('root-name').innerHTML = "Name: " + fs.root.name;
+					});
 			},
 			function(error){
 				alert('Erro na requisicao do arquivo' + error.code);

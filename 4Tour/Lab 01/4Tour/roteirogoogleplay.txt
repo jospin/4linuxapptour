@@ -1,0 +1,7 @@
+// Para colocar na google play:
+keytool -genkeypair -v -keystore /tmp.keystore -alias example -keylag RSA -keysize 4096 -validity 9125
+
+8 Retirar o plugin de console
+-> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore [NOMEDAAPP].keystore [CAMINHO/DA/SUA/APK] [NOMEDOALIAS]
+
+->zipalign -v 4 [NOMEDAAPP_USIGNED].APK [NOMENOVOPARAAPK]

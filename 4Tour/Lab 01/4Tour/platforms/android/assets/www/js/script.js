@@ -28,8 +28,8 @@ var app = {
 		app.audio();
 		app.backButton();
 		app.contatos();
-		// app.fileSystem();
-		// app.fileSystem2();
+		app.fileSystem();
+		app.fileSystem2();
 		app.buscaCep();
 	},
 	receivedEvent: function(id, elemento) {
@@ -668,147 +668,139 @@ var app = {
 
 		});
 	},
-	// fileSystem: function() {
-	// 	var type = window.PERSISTENT;
-	// 	var size = 10*1024*1024;
-	// 	window.requestFileSystem(
-	// 		type,
-	// 		size,
-	// 		function(fs){
-	// 			document.getElementById('arquivo').
-	// 				addEventListener('click', function() {
-	// 					var isfile = fs.root.isFile?'Sim':'Nao';
-	// 					var isDir = fs.root.isDirectory?'Sim':'Nao';
-	// 					document.getElementById('is-file').innerHTML = "arquivo: " + isfile;
-	// 					document.getElementById('is-dir').innerHTML = "diretorio: " + isDir;
-	// 					document.getElementById('full-path').innerHTML = "path: " + fs.root.fullPath;
-	// 					document.getElementById('root-name').innerHTML = "Name: " + fs.root.name;
-	// 					document.getElementById('native').innerHTML = "Name: " + fs.root.nativeURL;
-	// 				});
-	// 			// Cria diretorio persistente
-	// 			fs.root.getDirectory(
-	// 				'persistent',
-	// 				{create:true,exclusive:false},
-	// 				function(dir){
-	// 					document.getElementById('arquivo2').
-	// 						addEventListener('click', function() {
-	// 							var isfile = dir.isFile?'Sim':'Nao';
-	// 							var isDir = dir.isDirectory?'Sim':'Nao';
-	// 							document.getElementById('is-file2').innerHTML = "arquivo: " + isfile;
-	// 							document.getElementById('is-dir2').innerHTML = "diretorio: " + isDir;
-	// 							document.getElementById('full-path2').innerHTML = "path: " + dir.fullPath;
-	// 							document.getElementById('root-name2').innerHTML = "Name: " + dir.name;
-	// 							document.getElementById('native2').innerHTML = "Name: " + dir.nativeURL;
-	// 						});
-	// 						document.getElementById('arquivo3')
-	// 							.addEventListener('click', function() {
-	// 						dir.getFile(
-	// 							'teste.txt',
-	// 							{create:true,exclusive:false},
-	// 							function(file) {
-	// 								var isfile = file.isFile?'Sim':'Nao';
-	// 								var isDir = file.isDirectory?'Sim':'Nao';
-	// 								document.getElementById('is-file3').innerHTML = "arquivo: " + isfile;
-	// 								document.getElementById('is-dir3').innerHTML = "diretorio: " + isDir;
-	// 								document.getElementById('full-path3').innerHTML = "path: " + file.fullPath;
-	// 								document.getElementById('root-name3').innerHTML = "Name: " + file.name;
-	// 								document.getElementById('native3').innerHTML = "Name: " + file.nativeURL;
+	fileSystem: function() {
+		var type = window.PERSISTENT;
+		var size = 10*1024*1024;
+		window.requestFileSystem(
+			type,
+			size,
+			function(fs){
+				document.getElementById('arquivo').
+					addEventListener('click', function() {
+						var isfile = fs.root.isFile?'Sim':'Nao';
+						var isDir = fs.root.isDirectory?'Sim':'Nao';
+						document.getElementById('is-file').innerHTML = "arquivo: " + isfile;
+						document.getElementById('is-dir').innerHTML = "diretorio: " + isDir;
+						document.getElementById('full-path').innerHTML = "path: " + fs.root.fullPath;
+						document.getElementById('root-name').innerHTML = "Name: " + fs.root.name;
+						document.getElementById('native').innerHTML = "Name: " + fs.root.nativeURL;
+					});
+				// Cria diretorio persistente
+				fs.root.getDirectory(
+					'persistent',
+					{create:true,exclusive:false},
+					function(dir){
+						document.getElementById('arquivo2').
+							addEventListener('click', function() {
+								var isfile = dir.isFile?'Sim':'Nao';
+								var isDir = dir.isDirectory?'Sim':'Nao';
+								document.getElementById('is-file2').innerHTML = "arquivo: " + isfile;
+								document.getElementById('is-dir2').innerHTML = "diretorio: " + isDir;
+								document.getElementById('full-path2').innerHTML = "path: " + dir.fullPath;
+								document.getElementById('root-name2').innerHTML = "Name: " + dir.name;
+								document.getElementById('native2').innerHTML = "Name: " + dir.nativeURL;
+							});
+							document.getElementById('arquivo3')
+								.addEventListener('click', function() {
+							dir.getFile(
+								'teste.txt',
+								{create:true,exclusive:false},
+								function(file) {
+									var isfile = file.isFile?'Sim':'Nao';
+									var isDir = file.isDirectory?'Sim':'Nao';
+									document.getElementById('is-file3').innerHTML = "arquivo: " + isfile;
+									document.getElementById('is-dir3').innerHTML = "diretorio: " + isDir;
+									document.getElementById('full-path3').innerHTML = "path: " + file.fullPath;
+									document.getElementById('root-name3').innerHTML = "Name: " + file.name;
+									document.getElementById('native3').innerHTML = "Name: " + file.nativeURL;
 
 
-	// 							},
-	// 							function(erro) {
-	// 								alert('arquivo nao criado');
-	// 							}
-	// 						);
-	// 					});
-	// 				},
-	// 				function(error){
-	// 					alert('Erro ao criar o diretorio' + error.code);
-	// 				}
-	// 			);
+								},
+								function(erro) {
+									alert('arquivo nao criado');
+								}
+							);
+						});
+					},
+					function(error){
+						alert('Erro ao criar o diretorio' + error.code);
+					}
+				);
 	
-	// 		},
-	// 		function(error){
-	// 			alert('Erro na requisicao do arquivo' + error.code);
-	// 		}
-	// 	);
-	// },
-	// fileSystem2: function() {
-	// 	var type = window.TEMPORARY;
-	// 	var size = 10*1024*1024;
+			},
+			function(error){
+				alert('Erro na requisicao do arquivo' + error.code);
+			}
+		);
+	},
+	fileSystem2: function() {
+		var type = window.TEMPORARY;
+		var size = 10*1024*1024;
 		
-	// 	window.requestFileSystem (
-	// 		type,
-	// 		size,
-	// 		function(fs){
-	// 			document.getElementById('Tarquivo').
-	// 				addEventListener('click', function() {
-	// 					var isfile = fs.root.isFile?'Sim':'Nao';
-	// 					var isDir = fs.root.isDirectory?'Sim':'Nao';
-	// 					document.getElementById('Tis-file').innerHTML = "arquivo: " + isfile;
-	// 					document.getElementById('Tis-dir').innerHTML = "diretorio: " + isDir;
-	// 					document.getElementById('Tfull-path').innerHTML = "path: " + fs.root.fullPath;
-	// 					document.getElementById('Troot-name').innerHTML = "Name: " + fs.root.name;
-	// 					document.getElementById('Tnative').innerHTML = "Name: " + fs.root.nativeURL;
-	// 				});
-	// 			// Cria diretorio persistente
-	// 			fs.root.getDirectory(
-	// 				'temporary',
-	// 				{create:true,exclusive:false},
-	// 				function(dir){
-	// 					document.getElementById('Tarquivo2').
-	// 						addEventListener('click', function() {
-	// 							var isfile = dir.isFile?'Sim':'Nao';
-	// 							var isDir = dir.isDirectory?'Sim':'Nao';
-	// 							document.getElementById('Tis-file2').innerHTML = "arquivo: " + isfile;
-	// 							document.getElementById('Tis-dir2').innerHTML = "diretorio: " + isDir;
-	// 							document.getElementById('Tfull-path2').innerHTML = "path: " + dir.fullPath;
-	// 							document.getElementById('Troot-name2').innerHTML = "Name: " + dir.name;
-	// 							document.getElementById('Tnative2').innerHTML = "Name: " + dir.nativeURL;
-	// 						});
-	// 				},
-	// 				function(error){
-	// 					alert('Erro ao criar o diretorio' + error.code);
-	// 				}
-	// 			);
-	// 		},
-	// 		function(error){
-	// 			alert('Erro na requisicao do arquivo' + error.code);
-	// 		}
-	// 	);
-	// },
+		window.requestFileSystem (
+			type,
+			size,
+			function(fs){
+				document.getElementById('Tarquivo').
+					addEventListener('click', function() {
+						var isfile = fs.root.isFile?'Sim':'Nao';
+						var isDir = fs.root.isDirectory?'Sim':'Nao';
+						document.getElementById('Tis-file').innerHTML = "arquivo: " + isfile;
+						document.getElementById('Tis-dir').innerHTML = "diretorio: " + isDir;
+						document.getElementById('Tfull-path').innerHTML = "path: " + fs.root.fullPath;
+						document.getElementById('Troot-name').innerHTML = "Name: " + fs.root.name;
+						document.getElementById('Tnative').innerHTML = "Name: " + fs.root.nativeURL;
+					});
+				// Cria diretorio persistente
+				fs.root.getDirectory(
+					'temporary',
+					{create:true,exclusive:false},
+					function(dir){
+						document.getElementById('Tarquivo2').
+							addEventListener('click', function() {
+								var isfile = dir.isFile?'Sim':'Nao';
+								var isDir = dir.isDirectory?'Sim':'Nao';
+								document.getElementById('Tis-file2').innerHTML = "arquivo: " + isfile;
+								document.getElementById('Tis-dir2').innerHTML = "diretorio: " + isDir;
+								document.getElementById('Tfull-path2').innerHTML = "path: " + dir.fullPath;
+								document.getElementById('Troot-name2').innerHTML = "Name: " + dir.name;
+								document.getElementById('Tnative2').innerHTML = "Name: " + dir.nativeURL;
+							});
+					},
+					function(error){
+						alert('Erro ao criar o diretorio' + error.code);
+					}
+				);
+			},
+			function(error){
+				alert('Erro na requisicao do arquivo' + error.code);
+			}
+		);
+	},
 	buscaCep: function() {
-		alert('caregou');
-		document.getElementById('find_address')
+		document.getElementById('find-address')
 			.addEventListener('click', function() {
-				alert('click');
 				var cep = document.getElementById('campo-cep').value;
 				var div = document.getElementById('return-cep');
 				var url = 'http://apps.widenet.com.br/busca-cep/api/cep.json';
-				
-				$.ajax(url, {
-					method: 'GET',
-					dataType: 'json',
-					data: {code:cep},
-					success: function(data) {
-						if(data.status == 1) {
-							alert('Resultado ok no ajax');
+				var request = {code:cep};
+				$.get(url,
+					request, 
+					function(data, status) {
+						if (status == 'success') {
 							html = "CEP: " + data.code
-								+ " Estado: " data.state
-								+ " Cidade: " data.city
-								+ " Bairro: " data.district
-								+ " Endereco: " data.adress;
-							div.innerHTML(html);
+								+ " Estado: " + data.state
+								+ " Cidade: " + data.city
+								+ " Bairro: " + data.district
+								+ " Endereco: " + data.address;
+								alert(html);
+							div.innerHTML = html;
 						} else {
 							alert('cep errado');
 						}
-
-					}
-				});
-		})
-
+					});
+			});
 	}
-
 }
 
 function converteData(date){

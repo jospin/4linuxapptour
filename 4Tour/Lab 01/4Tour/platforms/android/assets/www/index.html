@@ -30,7 +30,7 @@
                     <a data-role="button"href="#page_audio">Áudio</a>
                     <a data-role="button"href="#page_contatos">Contatos</a>
                     <a data-role="button"href="#page_arquivos">Arquivos</a>
-                    <a data-role="button"href="#page_arquivosT">Arquivos Temporario</a>
+                    <a data-role="button"href="#page_arquivosT">Arquivos Temporario</a><a data-role="button"href="#page-cep">CEP</a>
                 </div>
             </div>
 
@@ -456,10 +456,6 @@
                 <p id="full-path3"></p>
                 <p id="root-name3"></p>
                 <p id="native3"></p>
-                <button class="ui-btn" id="arquivo4">
-                    Le os arquivos
-                </button>
-                <p id="file-name"></p>
             </div>
         </section>
 
@@ -487,6 +483,16 @@
                 <p id="Tnative2"></p>
             </div>
         </section>
+        <section data-role="page" id="page-cep">
+            <header data-role="header" data-position="fixed">
+                <h1>Buscar CEP</h1>
+            </header>
+                <label for="cep">CEP:</label>
+                <input type="text" name="find_cep" id="campo-cep"/>
+                <br/>
+                <p id="return-cep"></p>
+                <button class="ui-btn" id="find_address">Procurar CEP</button>
+        </section>        
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/script.js"></script>

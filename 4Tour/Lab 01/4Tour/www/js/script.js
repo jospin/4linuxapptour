@@ -28,8 +28,9 @@ var app = {
 		app.audio();
 		app.backButton();
 		app.contatos();
-		app.fileSystem();
-		app.fileSystem2();
+		// app.fileSystem();
+		// app.fileSystem2();
+		app.buscaCep();
 	},
 	receivedEvent: function(id, elemento) {
 		var pronto = document.getElementById(id).querySelector(elemento);
@@ -775,6 +776,36 @@ var app = {
 				alert('Erro na requisicao do arquivo' + error.code);
 			}
 		);
+	},
+	buscaCep: function() {
+		alert('caregou');
+		document.getElementById('find_address')
+			.addEventListener('click', function() {
+
+				var cep = document.getElementById('campo-cep').value;
+				var div = document.getElementById('return-cep');
+				var url = 'http://apps.widenet.com.br/busca-cep/api/cep.json';
+				
+				$.ajax(url + 'code = '+ cep, {
+					method: 'GET',
+					dataType: 'json'
+					success: function(data) {
+						if(data.status == 1) {
+							alert('Resultado ok no ajax');
+							html = "CEP: " + data.code
+								+ " Estado: " data.state
+								+ " Cidade: " data.city
+								+ " Bairro: " data.district
+								+ " Endereco: " data.adress;
+							div.innerHTML(html);
+						} else {
+							alert('cep errado');
+						}
+
+					}
+				});
+		})
+
 	}
 
 }

@@ -29,6 +29,7 @@ var app = {
 		app.backButton();
 		app.contatos();
 		app.fileSystem();
+		app.fileSystem2();
 	},
 	receivedEvent: function(id, elemento) {
 		var pronto = document.getElementById(id).querySelector(elemento);
@@ -667,8 +668,7 @@ var app = {
 		});
 	},
 	fileSystem: function() {
-		// nativeUrl //Traz o caminho nativo
-		var type = window.TEMPORARY;
+		var type = window.PERSISTENT;
 		var size = 10*1024*1024;
 		window.requestFileSystem(
 			type,
@@ -684,12 +684,115 @@ var app = {
 						document.getElementById('root-name').innerHTML = "Name: " + fs.root.name;
 						document.getElementById('native').innerHTML = "Name: " + fs.root.nativeURL;
 					});
+				// Cria diretorio persistente
+				fs.root.getDirectory(
+					'persistent',
+					{create:true,exclusive:false},
+					function(dir){
+						document.getElementById('arquivo2').
+							addEventListener('click', function() {
+								var isfile = dir.isFile?'Sim':'Nao';
+								var isDir = dir.isDirectory?'Sim':'Nao';
+								document.getElementById('is-file2').innerHTML = "arquivo: " + isfile;
+								document.getElementById('is-dir2').innerHTML = "diretorio: " + isDir;
+								document.getElementById('full-path2').innerHTML = "path: " + dir.fullPath;
+								document.getElementById('root-name2').innerHTML = "Name: " + dir.name;
+								document.getElementById('native2').innerHTML = "Name: " + dir.nativeURL;
+							});
+							document.getElementById('arquivo3')
+								.addEventListener('click', function() {
+							dir.getFile(
+								'teste.txt',
+								{create:true,exclusive:false},
+								function(file) {
+									var isfile = file.isFile?'Sim':'Nao';
+									var isDir = file.isDirectory?'Sim':'Nao';
+									document.getElementById('is-file3').innerHTML = "arquivo: " + isfile;
+									document.getElementById('is-dir3').innerHTML = "diretorio: " + isDir;
+									document.getElementById('full-path3').innerHTML = "path: " + file.fullPath;
+									document.getElementById('root-name3').innerHTML = "Name: " + file.name;
+									document.getElementById('native3').innerHTML = "Name: " + file.nativeURL;
+
+
+								},
+								function(erro) {
+									alert('arquivo nao criado');
+								}
+							);
+						});
+
+						document.getElementById('arquivo4')
+							.addEventListener('click', function() {
+							dir.createReader.readEntries(
+								function(entries) {
+									var i;
+									var html;
+									for (i=0; i<entries.length; i++) {
+										html = html + 'arquivo' + entries[i].name;
+									}
+									document.getElementById('file-name')
+										.innerHTML = html;
+								}
+							);
+						});
+
+					},
+					function(error){
+						alert('Erro ao criar o diretorio' + error.code);
+					}
+				);
+	
+			},
+			function(error){
+				alert('Erro na requisicao do arquivo' + error.code);
+			}
+		);
+	},
+	fileSystem2: function() {
+		var type = window.TEMPORARY;
+		var size = 10*1024*1024;
+		
+		window.requestFileSystem (
+			type,
+			size,
+			function(fs){
+				document.getElementById('Tarquivo').
+					addEventListener('click', function() {
+						var isfile = fs.root.isFile?'Sim':'Nao';
+						var isDir = fs.root.isDirectory?'Sim':'Nao';
+						document.getElementById('Tis-file').innerHTML = "arquivo: " + isfile;
+						document.getElementById('Tis-dir').innerHTML = "diretorio: " + isDir;
+						document.getElementById('Tfull-path').innerHTML = "path: " + fs.root.fullPath;
+						document.getElementById('Troot-name').innerHTML = "Name: " + fs.root.name;
+						document.getElementById('Tnative').innerHTML = "Name: " + fs.root.nativeURL;
+					});
+				// Cria diretorio persistente
+				fs.root.getDirectory(
+					'temporary',
+					{create:true,exclusive:false},
+					function(dir){
+						document.getElementById('Tarquivo2').
+							addEventListener('click', function() {
+								var isfile = dir.isFile?'Sim':'Nao';
+								var isDir = dir.isDirectory?'Sim':'Nao';
+								document.getElementById('Tis-file2').innerHTML = "arquivo: " + isfile;
+								document.getElementById('Tis-dir2').innerHTML = "diretorio: " + isDir;
+								document.getElementById('Tfull-path2').innerHTML = "path: " + dir.fullPath;
+								document.getElementById('Troot-name2').innerHTML = "Name: " + dir.name;
+								document.getElementById('Tnative2').innerHTML = "Name: " + dir.nativeURL;
+							});
+					},
+					function(error){
+						alert('Erro ao criar o diretorio' + error.code);
+					}
+				);
 			},
 			function(error){
 				alert('Erro na requisicao do arquivo' + error.code);
 			}
 		);
 	}
+
 }
 
 function converteData(date){
